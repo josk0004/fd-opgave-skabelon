@@ -1,1 +1,45 @@
 /* Globale styles her */
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Cabin', sans-serif;
+}
+
+h1 {
+    font-size: clamp(16px, 4vw, 50px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 116%;
+}
+
+p {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 147.5%;
+}
+
+a {
+    font-size: 18px;
+    line-height: 160%;
+    color: #353535;
+    text-decoration: none;
+    padding: 16px 31px;
+    background: #ffffff;
+    border: 1px solid #ebebeb;
+    border-radius: 50px;
+    transition: 0.3s ease-in-out;
+    width: fit-content;
+
+    &:hover {
+        translate: 0 -3px;
+    }
+}

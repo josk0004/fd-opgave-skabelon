@@ -18,7 +18,45 @@ console.log(servicesData);
 
 <style>
   @layer components {
+    ul {
+      max-width: 1220px;
+      display: flex;
+      margin: 0 auto;
+      gap: 20px;
+      padding: 0 10px;
+    }
     li {
+      display: flex;
+      padding: 46px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+      flex: 1 0 0;
+
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(38, 38, 38, 0.9);
+      backdrop-filter: blur(16px);
+
+      h2 {
+        font-size: 25px;
+        font-weight: 600;
+        font-style: normal;
+        line-height: 116%;
+        color: #ffffff;
+        margin-bottom: 10px;
+      }
+
+      p {
+        color: #ffffff;
+        margin-bottom: 36px;
+      }
+
+      a {
+        background: #151515;
+        color: #ffffff;
+        border: none;
+      }
     }
   }
 </style>
