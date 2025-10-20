@@ -1,5 +1,6 @@
 ---
 import Services from "./Services.astro";
+import DynamicImage from "./helpers/DynamicImage.astro";
 ---
 
 <section class="hero">
@@ -10,7 +11,7 @@ import Services from "./Services.astro";
       <p>Discover tailored strategies and expert insights to take your business to the next level. Let us help you navigate challenges and achieve sustainable success.</p>
       <a href="#0">Book a Meeting</a>
     </div>
-    <img src="ceo.png" alt="ceo" class="ceo-image" />
+    <img src="ceo.webp" alt="ceo" class="ceo-image" />
   </div>
 
   <Services />
@@ -21,7 +22,7 @@ import Services from "./Services.astro";
   @layer components {
     .hero {
       width: 100vw;
-      background-color: #f3f4f6;
+      overflow: hidden;
     }
 
     .hero-grid {
@@ -31,7 +32,18 @@ import Services from "./Services.astro";
       background-color: #181818;
       align-items: center;
       margin-bottom: -150px;
-      padding-left: 10px;
+      
+      @media (max-width: 1270px) {
+        padding-left: 38px;
+      }
+
+      @media (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        height: auto;
+        margin-bottom: 38px;
+      }
     }
 
     .hero-content {
@@ -51,6 +63,10 @@ import Services from "./Services.astro";
 
       p {
         margin-bottom: 29px;
+      }
+      @media (max-width: 768px) {
+        padding: 38px;
+        margin: 0;
       }
     }
 

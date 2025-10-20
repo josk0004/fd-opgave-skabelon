@@ -8,8 +8,10 @@ console.log(servicesData);
   {
     servicesData.services.map((service) => (
       <li>
-        <h2>{service.title}</h2>
-        <p>{service.description}</p>
+        <div class="service-content">
+          <h2>{service.title}</h2>
+          <p>{service.description}</p>
+        </div>
         <a href="#0">{service.buttonText}</a>
       </li>
     ))
@@ -19,18 +21,25 @@ console.log(servicesData);
 <style>
   @layer components {
     ul {
-      max-width: 1220px;
-      display: flex;
+      max-width: calc(1200px + 38px * 2);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
       margin: 0 auto;
       gap: 20px;
-      padding: 0 10px;
+      padding: 0 38px;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
     }
     li {
-      display: flex;
+      display: grid;
+      grid-template: subgrid;
+      grid-template-rows: 1fr auto;
       padding: 46px;
       flex-direction: column;
       justify-content: center;
-      gap: 10px;
+      gap: 20px;
       flex: 1 0 0;
 
       border-radius: 20px;
@@ -44,18 +53,26 @@ console.log(servicesData);
         font-style: normal;
         line-height: 116%;
         color: #ffffff;
-        margin-bottom: 10px;
       }
 
       p {
         color: #ffffff;
-        margin-bottom: 36px;
+      }
+
+      div.service-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        grid-column: 1;
+        grid-row: 1;
       }
 
       a {
         background: #151515;
         color: #ffffff;
         border: none;
+        grid-column: 1;
+        grid-row: 2;
       }
     }
   }

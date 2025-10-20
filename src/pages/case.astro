@@ -2,9 +2,12 @@
 import Layout from "@layouts/Layout.astro";
 import CaseStudyArticle from "@components/CaseStudyArticle.astro";
 import HeroBgWrapper from "@components/helpers/HeroBgWrapper.astro";
+import Nav from "@components/Nav.astro";
+import Footer from "@components/Footer.astro";
 ---
 
-<Layout title="Case">
+<Layout title="Case Study">
+  <Nav />
   <HeroBgWrapper imagePath="test.png">
     <header>
       <p>Case Studies</p>
@@ -13,4 +16,5 @@ import HeroBgWrapper from "@components/helpers/HeroBgWrapper.astro";
   </HeroBgWrapper>
 
   <CaseStudyArticle />
+  <Footer />
 </Layout>
