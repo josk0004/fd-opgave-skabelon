@@ -1,0 +1,184 @@
+---
+import employees from "@data/employees.json";
+import DynamicIcon from "./helpers/DynamicIcon.astro";
+import DynamicImage from "./helpers/DynamicImage.astro";
+---
+
+<section class="our-team-small">
+  <div class="our-team-wrapper">
+    <div class="text-content">
+      <div class="header-text">
+        <h2>Meet Our Great Team</h2>
+        <p>Welcome to our amazing team! We are a group of passionate individuals dedicated to excellence and innovation. Each member brings unique skills and experiences, working together to achieve our goals. Join us as we embark on exciting projects and create lasting impacts.</p>
+      </div>
+      <a href="#">Join our team</a>
+    </div>
+    <div class="team-members">
+      {
+        employees.map((employee) => (
+          <div class="team-member">
+            <div class="image-wrapper">
+              <a href={`/${employee.slug}`}>
+                <DynamicImage imagePath={employee.img} altText={employee.name} class="TeamMemberImage" />
+              </a>
+              <p class={employee.slug}>{employee.title}</p>
+            </div>
+            <h4>{employee.name}</h4>
+            <p>{employee.description}</p>
+            <div class="social-links">
+              {employee.social_links.map((link) => (
+                <a href={link.url} target="_blank" rel="noopener noreferrer">
+                  <DynamicIcon name={link.icon} />
+                </a>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  @layer components {
+    .our-team-small {
+      padding: 60px 38px;
+
+      .our-team-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+      }
+
+      .text-content {
+        max-width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        .header-text {
+          max-width: 600px;
+        }
+
+        h2 {
+          font-size: 45px;
+          font-weight: 700;
+          margin: 10px 0;
+        }
+
+        a {
+          align-self: end;
+          background-color: #181818;
+          color: #fff;
+          font-weight: 600;
+          border: none;
+
+          &:hover {
+            translate: 0 -3px;
+          }
+        }
+      }
+
+      .team-members {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 50px;
+        justify-content: space-between;
+
+        @media (max-width: 1024px) {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        @media (max-width: 768px) {
+          grid-template-columns: 1fr;
+          margin-inline: auto;
+        }
+
+        .team-member {
+          text-align: center;
+          max-width: 400px;
+
+          .image-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+              scale: 1.03;
+            }
+
+            > * {
+              grid-column: 1 / -1;
+              grid-row: 1 / -1;
+            }
+
+            a {
+              background: none;
+              border: none;
+              padding: 0;
+              margin: 0;
+              transition: none;
+            }
+
+            p {
+              background-color: #181818;
+              color: #fff;
+              padding: 4px 21px;
+              border-radius: 29px;
+              margin: 20px;
+              align-self: end;
+              justify-self: end;
+            }
+
+            .sarah-jasmine {
+              background-color: #ffcc4a;
+              color: #181818;
+            }
+
+            .TeamMemberImage {
+              border-radius: 20px;
+              width: 100%;
+              height: auto;
+              display: block;
+            }
+          }
+
+          h4 {
+            margin-top: 25px;
+            margin-bottom: 13px;
+            font-size: 30px;
+            color: #181818;
+            font-weight: 700;
+          }
+
+          p {
+            color: #595566;
+          }
+
+          .social-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+
+            a {
+              color: #181818;
+              border: none;
+              background: none;
+              padding: 0;
+
+              &:hover {
+                translate: 0 -3px;
+                color: #ffcc4a;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+</style>
