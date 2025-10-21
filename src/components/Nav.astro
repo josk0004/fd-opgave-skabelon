@@ -36,11 +36,15 @@
   loginButton.addEventListener("click", () => {
     loginModal.classList.remove("hidden");
     overlay.classList.remove("hidden");
+    // lock scrolling
+    document.body.style.overflow = "hidden";
   });
 
   overlay.addEventListener("click", () => {
     loginModal.classList.add("hidden");
     overlay.classList.add("hidden");
+    // unlock scrolling
+    document.body.style.overflow = "auto";
   });
 </script>
 
