@@ -40,10 +40,6 @@ a {
     transition: 0.3s ease-in-out;
     width: fit-content;
     height: fit-content;
-
-    &:hover {
-        translate: 0 -3px;
-    }
 }
 
 ul {

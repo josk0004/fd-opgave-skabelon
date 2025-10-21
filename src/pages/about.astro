@@ -5,6 +5,9 @@ import Footer from "@components/Footer.astro";
 import Newsletter from "@components/Newsletter.astro";
 import CoreValues from "@components/CoreValues.astro";
 import HeroBgWrapper from "@components/helpers/HeroBgWrapper.astro";
+import Ideas from "@components/Ideas.astro";
+import Stats from "@components/Stats.astro";
+import OurTeamSmall from "@components/OurTeamSmall.astro";
 ---
 
 <Layout title="About">
@@ -17,7 +20,10 @@ import HeroBgWrapper from "@components/helpers/HeroBgWrapper.astro";
       </div>
     </header>
   </HeroBgWrapper>
+  <Ideas />
+  <Stats />
   <CoreValues mode="light" />
+  <OurTeamSmall />
   <Newsletter />
   <Footer />
 </Layout>

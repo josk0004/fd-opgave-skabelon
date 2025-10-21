@@ -3,10 +3,19 @@ import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Nav.astro";
 import Footer from "@components/Footer.astro";
 import Newsletter from "@components/Newsletter.astro";
+import HeroBgWrapper from "@components/helpers/HeroBgWrapper.astro";
 ---
 
 <Layout title="Team">
   <Nav />
+  <HeroBgWrapper imagePath="Banner1.webp">
+    <header>
+      <div>
+        <p>Team</p>
+        <h1>The Consultors</h1>
+      </div>
+    </header>
+  </HeroBgWrapper>
   <Newsletter />
   <Footer />
 </Layout>

@@ -1,0 +1,135 @@
+---
+import Layout from "@layouts/Layout.astro";
+import employees from "@data/employees.json";
+import DynamicImage from "@components/helpers/DynamicImage.astro";
+import DynamicIcon from "@components/helpers/DynamicIcon.astro";
+
+export function getStaticPaths() {
+  return employees.map((employee) => ({
+    params: { employee: employee.slug },
+    props: { employee },
+  }));
+}
+
+const { employee } = Astro.props;
+---
+
+<Layout title={employee.name}>
+  <main class="employee-page">
+    <div class="employee-container">
+      <div class="employee-header">
+        <div class="employee-image">
+          <DynamicImage imagePath={employee.img} altText={employee.name} class="profile-image" />
+        </div>
+        <div class="employee-info">
+          <h1>{employee.name}</h1>
+          <p class="title">{employee.title}</p>
+          <p class="description">{employee.description_long}</p>
+          <div class="social-links">
+            {
+              employee.social_links.map((link) => (
+                <a href={link.url} target="_blank" rel="noopener noreferrer">
+                  <DynamicIcon name={link.icon} />
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="past-experience">
+        <h2>Past Experience</h2>
+        <p>{employee.past_experience}</p>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  @layer components {
+    .employee-page {
+      padding: 60px 38px;
+
+      .employee-container {
+        max-width: 1200px;
+        margin: 0 auto;
+
+        .employee-header {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 50px;
+          margin-bottom: 60px;
+
+          @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+          }
+
+          .employee-image {
+            .profile-image {
+              border-radius: 20px;
+              width: 100%;
+              height: auto;
+            }
+          }
+
+          .employee-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            h1 {
+              font-size: 48px;
+              font-weight: 700;
+              color: #181818;
+              margin-bottom: 10px;
+            }
+
+            .title {
+              font-size: 24px;
+              color: #ffcc4a;
+              margin-bottom: 20px;
+              font-weight: 600;
+            }
+
+            .description {
+              color: #595566;
+              line-height: 1.6;
+              margin-bottom: 30px;
+            }
+
+            .social-links {
+              display: flex;
+              gap: 20px;
+
+              a {
+                color: #181818;
+                font-size: 24px;
+                transition: all 0.3s ease;
+
+                &:hover {
+                  color: #ffcc4a;
+                  transform: translateY(-3px);
+                }
+              }
+            }
+          }
+        }
+
+        .past-experience {
+          h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #181818;
+            margin-bottom: 20px;
+          }
+
+          p {
+            color: #595566;
+            line-height: 1.8;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+</style>
