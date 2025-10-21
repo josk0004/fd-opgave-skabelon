@@ -1,6 +1,5 @@
 ---
 import Services from "./Services.astro";
-import DynamicImage from "./helpers/DynamicImage.astro";
 ---
 
 <section class="hero">
@@ -11,7 +10,7 @@ import DynamicImage from "./helpers/DynamicImage.astro";
       <p>Discover tailored strategies and expert insights to take your business to the next level. Let us help you navigate challenges and achieve sustainable success.</p>
       <a href="#0">Book a Meeting</a>
     </div>
-    <img src="ceo.webp" alt="ceo" class="ceo-image" />
+    <img src="/src/data/images/ceo.webp" alt="ceo" class="ceo-image" />
   </div>
 
   <Services />
@@ -81,7 +80,7 @@ import DynamicImage from "./helpers/DynamicImage.astro";
     }
 
     .pattern {
-      background: url(/Pattern.svg);
+      background: url(/src/data/images/Pattern.svg);
       width: 260px;
       height: 260px;
       grid-column: 1 / 3;

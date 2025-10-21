@@ -4,13 +4,13 @@ import experience from "@data/experience.json";
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const circles = document.querySelectorAll(".progress-circle");
+    const circles = document.querySelectorAll<HTMLElement>(".progress-circle");
 
     circles.forEach((circle) => {
       const value = parseInt(circle.getAttribute("data-value") || "0");
       const percentage = `${value}%`;
-      const indicator = circle.querySelector(".progress-indicator");
-      const numberDisplay = circle.querySelector("p");
+      const indicator = circle.querySelector<HTMLElement>(".progress-indicator");
+      const numberDisplay = circle.querySelector<HTMLParagraphElement>("p");
 
       circle.style.setProperty("--p", "0%");
       if (indicator) {
