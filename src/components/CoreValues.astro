@@ -1,0 +1,156 @@
+---
+import coreValues from "@data/coreValues.json";
+import DynamicIcon from "./helpers/DynamicIcon.astro";
+import RightArrow from "@icons/arrow--right.svg";
+---
+
+<section>
+  <div class="core-values-content">
+    <div class="text-wrapper">
+      <div class="text-content">
+        <h3>Growing with our clients</h3>
+        <h2>{coreValues.title}</h2>
+        <p>{coreValues.subtitle}</p>
+      </div>
+      <a href={coreValues.button.link}>{coreValues.button.text} </a>
+    </div>
+
+    <div class="cards-wrapper">
+      {
+        coreValues.values.map((card) => (
+          <div class="value-container">
+            <DynamicIcon name={card.icon} class="value-icon" />
+            <h4>{card.title}</h4>
+            <p>{card.description}</p>
+            <div class="read-more">
+              <a href={card.link.url}>{card.link.text}</a>
+              <RightArrow class="arrow-icon" />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  @layer components {
+    section {
+      background-color: #181818;
+      padding: 100px 38px;
+      color: #ffffff;
+
+      @media (max-width: 768px) {
+        padding: 80px 38px;
+      }
+
+      .core-values-content {
+        max-width: calc(1200px + 38px * 2);
+        margin: 0 auto;
+
+        .text-wrapper {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          margin-bottom: 34px;
+
+          .text-content {
+            max-width: 600px;
+
+            h3 {
+              font-family: "Lato", sans-serif;
+              font-weight: 400;
+              font-size: 16px;
+              letter-spacing: 2.32px;
+              text-transform: uppercase;
+            }
+
+            h2 {
+              font-size: 45px;
+              font-weight: 700;
+              margin: 10px 0;
+            }
+          }
+
+          a {
+            align-self: flex-end;
+            margin-top: 20px;
+          }
+        }
+
+        .cards-wrapper {
+          display: flex;
+          gap: 36px;
+
+          @media (max-width: 992px) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+          }
+
+          .value-container {
+            background-color: #f5f5f5;
+            color: #181818;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 36px 23px;
+            height: fit-content;
+            width: 100%;
+
+            h4 {
+              font-size: 20px;
+              font-weight: 600;
+              color: #181818;
+              margin: 22px 0 15px 0;
+            }
+
+            p {
+              color: #595566;
+              margin-bottom: 15px;
+            }
+
+            .value-icon {
+              width: 48px;
+              height: 48px;
+              color: #f5f5f5;
+              background-color: #181818;
+              padding: 12px;
+              border-radius: 50%;
+            }
+
+            .read-more {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              transition: all 0.3s ease-in-out;
+
+              &:hover {
+                translate: 0 -3px;
+              }
+
+              a {
+                background: none;
+                border: none;
+                padding: 0;
+                margin: 0;
+                color: #181818;
+                font-weight: 600;
+                font-size: 18px;
+                translate: 0;
+              }
+
+              .arrow-icon {
+                width: 16px;
+                height: 16px;
+                color: #181818;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

@@ -2,17 +2,7 @@
 import financialProjections from "@data/financialProjections.json";
 import LeftArrow from "@icons/arrow-left.svg";
 import RightArrow from "@icons/arrow--right.svg";
-import Cal from "@icons/cal.svg";
-import Card from "@icons/card.svg";
-import Law from "@icons/law.svg";
-import Money from "@icons/money.svg";
-
-const iconMap = {
-  cal: Cal,
-  card: Card,
-  law: Law,
-  money: Money,
-};
+import DynamicIcon from "./helpers/DynamicIcon.astro";
 ---
 
 <script>
@@ -60,16 +50,13 @@ const iconMap = {
   </header>
   <ul class="full-width">
     {
-      financialProjections.values.map((card) => {
-        const Icon = iconMap[card.icon];
-        return (
+      financialProjections.values.map((card) => (
           <li>
-            {Icon && <Icon />}
+            <DynamicIcon name={card.icon} class="card-icon" />
             <h3>{card.title}</h3>
             <p>{card.description}</p>
           </li>
-        );
-      })
+      ))
     }
   </ul>
 </section>
