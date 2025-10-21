@@ -8,6 +8,14 @@ import HeroBgWrapper from "@components/helpers/HeroBgWrapper.astro";
 import Ideas from "@components/Ideas.astro";
 import Stats from "@components/Stats.astro";
 import OurTeamSmall from "@components/OurTeamSmall.astro";
+import AccordionContainer from "@components/AccordionContainer.astro";
+import faqData from "@data/faq.json";
+// Prepare FAQ items for the accordion (AccordionItem will normalize paragraphs)
+const items = faqData.faq.map((item, idx) => ({
+  id: `faq-${idx + 1}`,
+  question: item.question,
+  answer: item.answer,
+}));
 ---
 
 <Layout title="About">
@@ -24,6 +32,7 @@ import OurTeamSmall from "@components/OurTeamSmall.astro";
   <Stats />
   <CoreValues mode="light" />
   <OurTeamSmall />
+  <AccordionContainer data={items} exclusive={true} />
   <Newsletter />
   <Footer />
 </Layout>

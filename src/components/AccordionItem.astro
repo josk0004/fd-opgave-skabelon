@@ -1,0 +1,104 @@
+---
+import PlusIcon from "../icons/plus.svg";
+const { exclusive, ...props } = Astro.props;
+const { id, question, answer, linkBlock } = props;
+// Normalize answer: support string with paragraph breaks or pre-split array
+const paragraphs = Array.isArray(answer) ? answer : typeof answer === "string" ? answer.split(/\r?\n\s*\r?\n/) : [];
+---
+
+<details {id} {...exclusive ? { name: "faq" } : {}}>
+  <summary>
+    <span>
+      {question}
+      <PlusIcon />
+    </span>
+  </summary>
+  <div class="answer">
+    {paragraphs.map((a) => <p set:html={a} />)}
+    {
+      linkBlock && (
+        <a class="link-block" href={linkBlock.url} target="_blank">
+          {linkBlock.label}
+        </a>
+      )
+    }
+  </div>
+</details>
+
+<style>
+  details {
+    color: hsl(190 30% 12%);
+    border-bottom: 1px solid #dadada;
+    inline-size: 100%;
+
+    @media (prefers-reduced-motion: no-preference) {
+      interpolate-size: allow-keywords;
+    }
+    &::details-content {
+      opacity: 0;
+      block-size: 0;
+      overflow-y: clip;
+      transition:
+        content-visibility 0.3s allow-discrete,
+        opacity 0.3s,
+        block-size 0.3s;
+    }
+    &[open] {
+      --r: z 90deg;
+    }
+
+    &[open]::details-content {
+      opacity: 1;
+      block-size: auto;
+    }
+
+    summary {
+      font-weight: 500;
+      font-family: "Cabin", sans-serif;
+      font-size: 20px;
+      color: #181818;
+      text-wrap: revert;
+      user-select: none;
+      cursor: pointer;
+
+      &::marker,
+      &::-webkit-details-marker {
+        content: "";
+        display: none;
+      }
+
+      span {
+        border: none;
+        text-align: start;
+        padding: 0;
+        inline-size: 100%;
+        padding-block: 1rlh;
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+
+        svg {
+          inline-size: auto;
+          height: 1lh;
+          flex-shrink: 0;
+        }
+      }
+    }
+
+    .answer {
+      color: #595566;
+
+      > * + * {
+        margin-top: 1em;
+      }
+
+      :last-child {
+        padding-block-end: 1rlh;
+      }
+
+      .link-block {
+        display: block;
+      }
+    }
+  }
+</style>
