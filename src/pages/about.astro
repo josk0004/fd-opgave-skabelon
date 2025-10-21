@@ -4,10 +4,19 @@ import Nav from "@components/Nav.astro";
 import Footer from "@components/Footer.astro";
 import Newsletter from "@components/Newsletter.astro";
 import CoreValues from "@components/CoreValues.astro";
+import HeroBgWrapper from "@components/helpers/HeroBgWrapper.astro";
 ---
 
-<Layout>
+<Layout title="About">
   <Nav />
+  <HeroBgWrapper imagePath="Banner2.webp">
+    <header>
+      <div>
+        <p>About</p>
+        <h1>Creative Services For Boost <br /> Your Business Growth</h1>
+      </div>
+    </header>
+  </HeroBgWrapper>
   <CoreValues mode="light" />
   <Newsletter />
   <Footer />
