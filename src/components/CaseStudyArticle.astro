@@ -29,11 +29,7 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
   {
     caseStudy.sections.map((section) => (
       <section>
-        {caseStudy.sections[0] === section ? (
-          <h2>{section.title}</h2>
-        ) : (
-          <h3>{section.title}</h3>
-        )}
+        {caseStudy.sections[0] === section ? <h2>{section.title}</h2> : <h3>{section.title}</h3>}
 
         {Array.isArray(section.content) ? (
           <>
@@ -51,14 +47,7 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
             ))}
           </ul>
         )}
-        {section.image && (
-          <DynamicImage
-            imagePath={section.image}
-            altText={section.title}
-            width={600}
-            height={400}
-          />
-        )}
+        {section.image && <DynamicImage imagePath={section.image} altText={section.title} width={600} height={400} />}
       </section>
     ))
   }

@@ -1,0 +1,244 @@
+---
+import financialProjections from "@data/financialProjections.json";
+import LeftArrow from "@icons/arrow-left.svg";
+import RightArrow from "@icons/arrow--right.svg";
+import Cal from "@icons/cal.svg";
+import Card from "@icons/card.svg";
+import Law from "@icons/law.svg";
+import Money from "@icons/money.svg";
+
+const iconMap = {
+  cal: Cal,
+  card: Card,
+  law: Law,
+  money: Money,
+};
+---
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const list = document.querySelector(".full-width");
+    const items = Array.from(list.children);
+    let focusedIndex = 0;
+
+    function updateFocus() {
+      items.forEach((item, idx) => {
+        item.classList.toggle("focused", idx === focusedIndex);
+      });
+    }
+
+    document.querySelector(".arrows .left").parentElement.addEventListener("click", () => {
+      focusedIndex = Math.max(0, focusedIndex - 1);
+      items[focusedIndex].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+      updateFocus();
+    });
+
+    document.querySelector(".arrows .right").parentElement.addEventListener("click", () => {
+      focusedIndex = Math.min(items.length - 1, focusedIndex + 1);
+      items[focusedIndex].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+      updateFocus();
+    });
+
+    updateFocus();
+  });
+</script>
+
+<section>
+  <header>
+    <div class="header-text">
+      <h2>{financialProjections.title}</h2>
+      <p>{financialProjections.subtitle}</p>
+    </div>
+    <div class="arrows">
+      <button aria-label="Scroll left">
+        <LeftArrow class="left" />
+      </button>
+      <button aria-label="Scroll right">
+        <RightArrow class="right" />
+      </button>
+    </div>
+  </header>
+  <ul class="full-width">
+    {
+      financialProjections.values.map((card) => {
+        const Icon = iconMap[card.icon];
+        return (
+          <li>
+            {Icon && <Icon />}
+            <h3>{card.title}</h3>
+            <p>{card.description}</p>
+          </li>
+        );
+      })
+    }
+  </ul>
+</section>
+<style>
+  @layer components {
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 36px;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 0 1rem 0;
+      padding-inline: max(1rem, 50% - 1200px / 2);
+    }
+
+    li {
+      background-color: #ebebeb;
+      color: #181818;
+      padding: 44px 35px;
+      border-radius: 20px;
+      flex-basis: 30rem;
+      flex-shrink: 0;
+      transition: all 0.3s ease-in-out;
+
+      h3{
+        font-size: 25px;
+        font-weight: 600;
+        line-height: 116%;
+        margin: 24px 0 10px 0
+      }
+
+      p{
+        color: #595566;
+      }
+
+
+      &.focused {
+        background: #181818;
+        color: #fff;
+
+        p{
+          color: #ffffff;
+        }
+  
+        svg {
+          color: #ffc32b;
+        }
+      }
+    }
+
+    
+
+    section {
+      display: grid;
+      grid-template-columns: 1fr minmax(0, 1200px) 1fr;
+      gap: 2rem;
+      background-color: #f5f5f5;
+      padding: 190px 0;
+      margin-top: 140px;
+
+      > * {
+        grid-column: 2;
+      }
+
+      :last-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 48px;
+
+      .header-text {
+        width: 645px;
+
+        h2{
+          font-size: 45px;
+          font-weight: 700;
+          line-height: 116%;
+          margin-bottom: 13px;
+          color: #181818;
+        }
+        p{
+          color: #595566;
+        }
+      }
+
+      .arrows {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 26px;
+
+        .left {
+          background: #181818;
+          color: #ffffff;
+          width: 70px;
+          height: 70px;
+          padding: 18px;
+          border-radius: 50%;
+        }
+
+        .right {
+          background: #ffc32b;
+          color: #181818;
+          width: 70px;
+          height: 70px;
+          padding: 18px;
+          border-radius: 50%;
+        }
+
+       > *{
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          translate: 0 -4px;
+        }
+      }
+    }
+  }
+    /* Mobile layout */
+    @media (max-width: 768px) {
+      section {
+        padding: 60px 0;
+        margin-top: 40px;
+        /* grid-template-columns: 1fr; */
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 24px;
+        .header-text {
+          width: 100%;
+          h2 {
+            font-size: 28px;
+          }
+          p {
+            font-size: 15px;
+          }
+        }
+        .arrows {
+          margin-top: 18px;
+          gap: 16px;
+          .left, .right {
+            width: 48px;
+            height: 48px;
+            padding: 10px;
+          }
+        }
+      }
+      ul {
+        gap: 16px;
+        padding-inline: 1rem;
+      }
+      li {
+        flex-basis: 80vw;
+        padding: 24px 16px;
+        h3 {
+          font-size: 18px;
+          margin: 16px 0 8px 0;
+        }
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+</style>
