@@ -1,0 +1,212 @@
+---
+import experience from "@data/experience.json";
+---
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const circles = document.querySelectorAll(".progress-circle");
+
+    circles.forEach((circle) => {
+      const value = parseInt(circle.getAttribute("data-value") || "0");
+      const percentage = `${value}%`;
+      const indicator = circle.querySelector(".progress-indicator");
+      const numberDisplay = circle.querySelector("p");
+
+      circle.style.setProperty("--p", "0%");
+      if (indicator) {
+        indicator.style.setProperty("--p", "0%");
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                circle.style.setProperty("--p", percentage);
+                if (indicator) {
+                  indicator.style.setProperty("--p", percentage);
+                }
+
+                // Animate the number
+                const duration = 2000; // 2 seconds to match CSS transition
+                const startTime = performance.now();
+
+                const animateNumber = (currentTime: number) => {
+                  const elapsed = currentTime - startTime;
+                  const progress = Math.min(elapsed / duration, 1);
+
+                  // Ease-in-out function to match CSS timing
+                  const easeInOutProgress = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+                  const currentValue = Math.floor(easeInOutProgress * value);
+                  if (numberDisplay) {
+                    numberDisplay.textContent = `${currentValue}%`;
+                  }
+
+                  if (progress < 1) {
+                    requestAnimationFrame(animateNumber);
+                  } else if (numberDisplay) {
+                    numberDisplay.textContent = `${value}%`;
+                  }
+                };
+
+                requestAnimationFrame(animateNumber);
+              }, 100);
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(circle);
+    });
+  });
+</script>
+
+<section>
+  <div class="experience-content">
+    <div class="text-wrapper">
+      <h3>Experience</h3>
+      <h2>{experience.heading}</h2>
+      <p>{experience.subheading}</p>
+    </div>
+
+    <div class="circles-wrapper">
+      {
+        experience.stats.map((stat) => (
+          <div class="circle-container">
+            <div class="progress-circle" data-value={stat.value}>
+              <div class="progress-indicator" />
+              <p>{stat.value}%</p>
+            </div>
+            <p>{stat.label}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  @layer components {
+    section {
+      background-color: #fbc336;
+
+      .experience-content {
+        display: flex;
+        justify-content: space-between;
+        max-width: calc(1200px + 38px * 2);
+        margin: 0 auto;
+        padding: 133px 38px;
+
+        @media (max-width: 1100px) {
+          flex-direction: column;
+          align-items: center;
+          gap: 60px;
+        }
+
+        @media (max-width: 768px) {
+          padding: 80px 38px;
+        }
+      }
+
+      .text-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 375px;
+
+        h3 {
+          font-size: 16px;
+          font-weight: 400;
+          font-family: "Lato", sans-serif;
+          letter-spacing: 2.32px;
+          text-transform: uppercase;
+          color: #181818;
+        }
+
+        h2 {
+          font-size: 45px;
+          font-weight: 700;
+          color: #181818;
+        }
+
+        p {
+          color: #181818;
+          font-size: 18px;
+        }
+      }
+    }
+
+    @property --p {
+      syntax: "<percentage>";
+      inherits: false;
+      initial-value: 0%;
+    }
+
+    .circles-wrapper {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
+    }
+
+    .circle-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+
+      p:not(.progress-circle p) {
+        font-size: 25px;
+        font-weight: 600;
+        color: #181818;
+      }
+    }
+
+    .progress-circle {
+      width: 185px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: conic-gradient(#ffffff var(--p), #daae3c 0);
+      transition: --p 2s ease-in-out;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 5px;
+        border-radius: inherit;
+        background-color: #fbc336;
+      }
+
+      .progress-indicator {
+        width: 30px;
+        height: 30px;
+        background-color: #181818;
+        border: 5px solid #ffffff;
+        border-radius: 50%;
+        offset: path("M 92.5, 3 a 92.5 92.5 0 1 1 -.1 0 z");
+        offset-distance: var(--p);
+        transition: offset-distance 2s ease-in-out;
+      }
+
+      p {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 50px;
+        font-weight: 700;
+        color: #181818;
+      }
+    }
+  }
+</style>
+
+<!-- https://www.smashingmagazine.com/2023/10/animate-along-path-css/ -->
