@@ -2,9 +2,10 @@
 import coreValues from "@data/coreValues.json";
 import DynamicIcon from "./helpers/DynamicIcon.astro";
 import RightArrow from "@icons/arrow--right.svg";
+const { mode } = Astro.props;
 ---
 
-<section>
+<section class={mode}>
   <div class="core-values-content">
     <div class="text-wrapper">
       <div class="text-content">
@@ -12,7 +13,7 @@ import RightArrow from "@icons/arrow--right.svg";
         <h2>{coreValues.title}</h2>
         <p>{coreValues.subtitle}</p>
       </div>
-      <a href={coreValues.button.link}>{coreValues.button.text} </a>
+      <a href={coreValues.button.link} class={mode}>{coreValues.button.text}</a>
     </div>
 
     <div class="cards-wrapper">
@@ -36,9 +37,17 @@ import RightArrow from "@icons/arrow--right.svg";
 <style>
   @layer components {
     section {
-      background-color: #181818;
       padding: 100px 38px;
-      color: #ffffff;
+
+      &.dark {
+        background-color: #181818;
+        color: #ffffff;
+      }
+
+      &.light {
+        background-color: #ffffff;
+        color: #181818;
+      }
 
       @media (max-width: 768px) {
         padding: 80px 38px;
@@ -75,6 +84,17 @@ import RightArrow from "@icons/arrow--right.svg";
           a {
             align-self: flex-end;
             margin-top: 20px;
+
+            &.dark {
+              background-color: #ffffff;
+              color: #181818;
+            }
+
+            &.light {
+              background-color: #181818;
+              color: #ffffff;
+              border: none;
+            }
           }
         }
 
