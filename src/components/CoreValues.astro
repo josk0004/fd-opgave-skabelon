@@ -11,7 +11,7 @@ const { mode } = Astro.props;
       <div class="text-content">
         <h3>Growing with our clients</h3>
         <h2>{coreValues.title}</h2>
-        <p>{coreValues.subtitle}</p>
+        <p class={mode}>{coreValues.subtitle}</p>
       </div>
       <a href={coreValues.button.link} class={mode}>{coreValues.button.text}</a>
     </div>
@@ -82,6 +82,14 @@ const { mode } = Astro.props;
               font-size: var(--font-size-6xl);
               font-weight: var(--font-weight-bold);
               margin: 10px 0;
+            }
+
+            p {
+              color: var(--color-text-medium);
+
+              &.dark {
+                color: var(--color-white);
+              }
             }
           }
 
