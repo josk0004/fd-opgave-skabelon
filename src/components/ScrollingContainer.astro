@@ -51,11 +51,11 @@ import DynamicIcon from "./helpers/DynamicIcon.astro";
   <ul class="full-width">
     {
       financialProjections.values.map((card) => (
-          <li>
-            <DynamicIcon name={card.icon} class="card-icon" />
-            <h3>{card.title}</h3>
-            <p>{card.description}</p>
-          </li>
+        <li>
+          <DynamicIcon name={card.icon} class="card-icon" />
+          <h3>{card.title}</h3>
+          <p>{card.description}</p>
+        </li>
       ))
     }
   </ul>
@@ -83,33 +83,30 @@ import DynamicIcon from "./helpers/DynamicIcon.astro";
       flex-shrink: 0;
       transition: all 0.3s ease-in-out;
 
-      h3{
+      h3 {
         font-size: var(--font-size-xl);
         font-weight: var(--font-weight-semibold);
         line-height: var(--line-height-tight);
-        margin: 24px 0 10px 0
+        margin: 24px 0 10px 0;
       }
 
-      p{
+      p {
         color: var(--color-text-medium);
       }
-
 
       &.focused {
         background: var(--bg-dark);
         color: var(--color-white);
 
-        p{
+        p {
           color: var(--color-white);
         }
-  
+
         svg {
           color: var(--bg-yellow-variant);
         }
       }
     }
-
-    
 
     section {
       display: grid;
@@ -137,14 +134,14 @@ import DynamicIcon from "./helpers/DynamicIcon.astro";
       .header-text {
         width: 645px;
 
-        h2{
+        h2 {
           font-size: var(--font-size-6xl);
           font-weight: var(--font-weight-bold);
           line-height: var(--line-height-tight);
           margin-bottom: 13px;
           color: var(--color-text-dark);
         }
-        p{
+        p {
           color: var(--color-text-medium);
         }
       }
@@ -173,15 +170,15 @@ import DynamicIcon from "./helpers/DynamicIcon.astro";
           border-radius: 50%;
         }
 
-       > *{
-        transition: all 0.3s ease-in-out;
+        > * {
+          transition: all 0.3s ease-in-out;
 
-        &:hover {
-          translate: 0 -4px;
+          &:hover {
+            translate: 0 -4px;
+          }
         }
       }
     }
-  }
     /* Mobile layout */
     @media (max-width: 768px) {
       section {
@@ -205,7 +202,8 @@ import DynamicIcon from "./helpers/DynamicIcon.astro";
         .arrows {
           margin-top: 18px;
           gap: 16px;
-          .left, .right {
+          .left,
+          .right {
             width: 48px;
             height: 48px;
             padding: 10px;
@@ -228,4 +226,5 @@ import DynamicIcon from "./helpers/DynamicIcon.astro";
         }
       }
     }
+  }
 </style>
