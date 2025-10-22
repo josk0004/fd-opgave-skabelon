@@ -2,8 +2,8 @@
 import PlusIcon from "../icons/plus.svg";
 const { exclusive, ...props } = Astro.props;
 const { id, question, answer, linkBlock } = props;
-// Normalize answer: support string with paragraph breaks or pre-split array
-const paragraphs = Array.isArray(answer) ? answer : typeof answer === "string" ? answer.split(/\r?\n\s*\r?\n/) : [];
+
+const paragraphs = Array.isArray(answer) ? answer : typeof answer === "string" ? answer.split(/\n\s*\n/) : [];
 ---
 
 <details {id} {...exclusive ? { name: "faq" } : {}}>
