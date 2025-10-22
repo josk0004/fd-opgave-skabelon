@@ -68,8 +68,8 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
         }
 
         .case-details {
-          background-color: #181818;
-          color: #ffffff;
+          background-color: var(--bg-dark);
+          color: var(--color-white);
           padding: 53px 60px;
           display: flex;
           max-width: clamp(0px, 80vw, 1028px);
@@ -109,25 +109,25 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
               gap: 10px;
 
               dt {
-                font-family: "Cabin", sans-serif;
-                font-size: 20px;
-                font-weight: 500;
-                line-height: 116%;
+                font-family: var(--font-heading);
+                font-size: var(--font-size-lg);
+                font-weight: var(--font-weight-medium);
+                line-height: var(--line-height-tight);
               }
 
               dd {
-                font-family: "Cabin", sans-serif;
-                font-size: 16px;
-                font-weight: 400;
-                line-height: 116%;
+                font-family: var(--font-heading);
+                font-size: var(--font-size-base);
+                font-weight: var(--font-weight-regular);
+                line-height: var(--line-height-tight);
               }
             }
           }
 
           .button {
             border: none;
-            background-color: #ffcc4a;
-            color: #181818;
+            background-color: var(--bg-yellow);
+            color: var(--color-text-dark);
           }
         }
       }
@@ -135,28 +135,28 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
       section {
         max-width: 792px;
         margin: 0 auto;
-        color: #181818;
+        color: var(--color-text-dark);
         h2 {
-          font-size: 40px;
-          font-weight: 700;
-          line-height: 116%;
+          font-size: var(--font-size-5xl);
+          font-weight: var(--font-weight-bold);
+          line-height: var(--line-height-tight);
           margin-bottom: 15px;
         }
         h3 {
-          color: #1c1c1c;
-          font-size: 30px;
-          font-weight: 700;
-          line-height: 116%; /* 34.8px */
+          color: var(--color-text-gray-alt);
+          font-size: var(--font-size-3xl);
+          font-weight: var(--font-weight-bold);
+          line-height: var(--line-height-tight); /* 34.8px */
         }
 
         p {
-          color: #595566;
+          color: var(--color-text-medium);
         }
 
         ul {
           list-style-type: disc;
           margin-left: 20px;
-          color: #595566;
+          color: var(--color-text-medium);
           margin-bottom: 64px;
         }
 

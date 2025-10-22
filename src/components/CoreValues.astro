@@ -40,13 +40,13 @@ const { mode } = Astro.props;
       padding: 100px 38px;
 
       &.dark {
-        background-color: #181818;
-        color: #ffffff;
+        background-color: var(--bg-dark);
+        color: var(--color-white);
       }
 
       &.light {
-        background-color: #f5f5f5;
-        color: #181818;
+        background-color: var(--bg-light-gray);
+        color: var(--color-text-dark);
       }
 
       @media (max-width: 768px) {
@@ -71,16 +71,16 @@ const { mode } = Astro.props;
             max-width: 600px;
 
             h3 {
-              font-family: "Lato", sans-serif;
-              font-weight: 400;
-              font-size: 16px;
+              font-family: var(--font-body);
+              font-weight: var(--font-weight-regular);
+              font-size: var(--font-size-base);
               letter-spacing: 2.32px;
               text-transform: uppercase;
             }
 
             h2 {
-              font-size: 45px;
-              font-weight: 700;
+              font-size: var(--font-size-6xl);
+              font-weight: var(--font-weight-bold);
               margin: 10px 0;
             }
           }
@@ -90,13 +90,13 @@ const { mode } = Astro.props;
             margin-top: 20px;
 
             &.dark {
-              background-color: #ffffff;
-              color: #181818;
+              background-color: var(--bg-white);
+              color: var(--color-text-dark);
             }
 
             &.light {
-              background-color: #181818;
-              color: #ffffff;
+              background-color: var(--bg-dark);
+              color: var(--color-white);
               border: none;
             }
           }
@@ -116,38 +116,38 @@ const { mode } = Astro.props;
           }
 
           .value-container {
-            color: #181818;
-            border: 1px solid #eaeaea;
+            color: var(--color-text-dark);
+            border: 1px solid var(--border-medium-gray);
             border-radius: 8px;
             padding: 36px 23px;
             height: fit-content;
             width: 100%;
 
             &.dark {
-              background-color: #f5f5f5;
+              background-color: var(--bg-light-gray);
             }
 
             &.light {
-              background-color: #ffffff;
+              background-color: var(--bg-white);
             }
 
             h4 {
-              font-size: 20px;
-              font-weight: 600;
-              color: #181818;
+              font-size: var(--font-size-lg);
+              font-weight: var(--font-weight-semibold);
+              color: var(--color-text-dark);
               margin: 22px 0 15px 0;
             }
 
             p {
-              color: #595566;
+              color: var(--color-text-medium);
               margin-bottom: 15px;
             }
 
             .value-icon {
               width: 48px;
               height: 48px;
-              color: #f5f5f5;
-              background-color: #181818;
+              color: var(--bg-light-gray);
+              background-color: var(--bg-dark);
               padding: 12px;
               border-radius: 50%;
             }
@@ -167,16 +167,16 @@ const { mode } = Astro.props;
                 border: none;
                 padding: 0;
                 margin: 0;
-                color: #181818;
-                font-weight: 600;
-                font-size: 18px;
+                color: var(--color-text-dark);
+                font-weight: var(--font-weight-semibold);
+                font-size: var(--font-size-md);
                 translate: 0;
               }
 
               .arrow-icon {
                 width: 16px;
                 height: 16px;
-                color: #181818;
+                color: var(--color-text-dark);
               }
             }
           }

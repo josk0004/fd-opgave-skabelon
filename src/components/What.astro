@@ -64,7 +64,7 @@ import Checkmark from "@icons/checkmark.svg";
         left: -28px;
         width: 183px;
         height: 164px;
-        background-color: #4eaf4e;
+        background-color: var(--bg-green);
         z-index: 1;
         border-radius: 20px;
       }
@@ -84,25 +84,25 @@ import Checkmark from "@icons/checkmark.svg";
       margin-top: -65px;
 
       p {
-        color: #595566;
+        color: var(--color-text-medium);
       }
 
       h3 {
-        font-family: "Lato", sans-serif;
+        font-family: var(--font-body);
         text-transform: uppercase;
-        color: #181818;
-        font-size: 16px;
-        font-weight: 400;
+        color: var(--color-text-dark);
+        font-size: var(--font-size-base);
+        font-weight: var(--font-weight-regular);
         letter-spacing: 2.32px;
-        line-height: 147.5%;
+        line-height: var(--line-height-normal);
         margin-bottom: 14px;
       }
 
       h2 {
-        font-size: 45px;
-        font-weight: 700;
-        line-height: 116%;
-        color: #181818;
+        font-size: var(--font-size-6xl);
+        font-weight: var(--font-weight-bold);
+        line-height: var(--line-height-tight);
+        color: var(--color-text-dark);
         margin-bottom: 13px;
       }
 
@@ -114,8 +114,8 @@ import Checkmark from "@icons/checkmark.svg";
         display: flex;
 
         p {
-          font-family: "Cabin", sans-serif;
-          line-height: 116%;
+          font-family: var(--font-heading);
+          line-height: var(--line-height-tight);
         }
 
         .checkmark {
@@ -123,7 +123,7 @@ import Checkmark from "@icons/checkmark.svg";
           width: 20px;
           height: 20px;
           flex-shrink: 0;
-          color: #4eaf4e;
+          color: var(--color-primary-green);
         }
 
         + .list-item {

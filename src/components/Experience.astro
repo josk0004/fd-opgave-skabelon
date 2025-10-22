@@ -91,7 +91,7 @@ import experience from "@data/experience.json";
 <style>
   @layer components {
     section {
-      background-color: #fbc336;
+      background-color: var(--bg-yellow-alt);
 
       .experience-content {
         display: flex;
@@ -118,23 +118,23 @@ import experience from "@data/experience.json";
         max-width: 375px;
 
         h3 {
-          font-size: 16px;
-          font-weight: 400;
-          font-family: "Lato", sans-serif;
+          font-size: var(--font-size-base);
+          font-weight: var(--font-weight-regular);
+          font-family: var(--font-body);
           letter-spacing: 2.32px;
           text-transform: uppercase;
-          color: #181818;
+          color: var(--color-text-dark);
         }
 
         h2 {
-          font-size: 45px;
-          font-weight: 700;
-          color: #181818;
+          font-size: var(--font-size-6xl);
+          font-weight: var(--font-weight-bold);
+          color: var(--color-text-dark);
         }
 
         p {
-          color: #181818;
-          font-size: 18px;
+          color: var(--color-text-dark);
+          font-size: var(--font-size-md);
         }
       }
     }
@@ -162,9 +162,9 @@ import experience from "@data/experience.json";
       gap: 1rem;
 
       p:not(.progress-circle p) {
-        font-size: 25px;
-        font-weight: 600;
-        color: #181818;
+        font-size: var(--font-size-xl);
+        font-weight: var(--font-weight-semibold);
+        color: var(--color-text-dark);
       }
     }
 
@@ -172,7 +172,7 @@ import experience from "@data/experience.json";
       width: 185px;
       aspect-ratio: 1;
       border-radius: 50%;
-      background: conic-gradient(#ffffff var(--p), #daae3c 0);
+      background: conic-gradient(var(--color-white) var(--p), var(--bg-yellow-dark) 0);
       transition: --p 2s ease-in-out;
       position: relative;
 
@@ -181,14 +181,14 @@ import experience from "@data/experience.json";
         position: absolute;
         inset: 5px;
         border-radius: inherit;
-        background-color: #fbc336;
+        background-color: var(--bg-yellow-alt);
       }
 
       .progress-indicator {
         width: 30px;
         height: 30px;
-        background-color: #181818;
-        border: 5px solid #ffffff;
+        background-color: var(--bg-dark);
+        border: 5px solid var(--color-white);
         border-radius: 50%;
         offset: path("M 92.5, 3 a 92.5 92.5 0 1 1 -.1 0 z");
         offset-distance: var(--p);
@@ -201,9 +201,9 @@ import experience from "@data/experience.json";
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 50px;
-        font-weight: 700;
-        color: #181818;
+        font-size: var(--font-size-7xl);
+        font-weight: var(--font-weight-bold);
+        color: var(--color-text-dark);
       }
     }
   }

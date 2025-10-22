@@ -28,7 +28,7 @@ const optimizedBackground = await getImage({
       height: 500px;
       /* Remove outer padding so we can align to a centered 1200px container */
       padding: 0;
-      color: #181818;
+      color: var(--color-text-dark);
       display: flex;
       align-items: center;
 
@@ -54,7 +54,7 @@ const optimizedBackground = await getImage({
           width: fit-content;
 
           p {
-            background-color: #ffcc4a;
+            background-color: var(--bg-yellow);
             padding: 0 15px;
             border-radius: 20px;
             text-transform: uppercase;

@@ -54,16 +54,16 @@ import DynamicImage from "./helpers/DynamicImage.astro";
         max-width: 600px;
 
         h3 {
-          font-family: "Lato", sans-serif;
-          font-weight: 400;
-          font-size: 16px;
+          font-family: var(--font-body);
+          font-weight: var(--font-weight-regular);
+          font-size: var(--font-size-base);
           letter-spacing: 2.32px;
           text-transform: uppercase;
         }
 
         h2 {
-          font-size: 45px;
-          font-weight: 700;
+          font-size: var(--font-size-6xl);
+          font-weight: var(--font-weight-bold);
           margin: 10px 0;
         }
       }
@@ -106,8 +106,8 @@ import DynamicImage from "./helpers/DynamicImage.astro";
             }
 
             p {
-              background-color: #181818;
-              color: #fff;
+              background-color: var(--bg-dark);
+              color: var(--color-white);
               padding: 4px 21px;
               border-radius: 29px;
               margin: 20px;
@@ -116,8 +116,8 @@ import DynamicImage from "./helpers/DynamicImage.astro";
             }
 
             .sarah-jasmine {
-              background-color: #ffcc4a;
-              color: #181818;
+              background-color: var(--bg-yellow);
+              color: var(--color-text-dark);
             }
 
             .TeamMemberImage {
@@ -131,13 +131,13 @@ import DynamicImage from "./helpers/DynamicImage.astro";
           h4 {
             margin-top: 25px;
             margin-bottom: 13px;
-            font-size: 30px;
-            color: #181818;
-            font-weight: 700;
+            font-size: var(--font-size-3xl);
+            color: var(--color-text-dark);
+            font-weight: var(--font-weight-bold);
           }
 
           p {
-            color: #595566;
+            color: var(--color-text-medium);
           }
 
           .social-links {
@@ -147,14 +147,14 @@ import DynamicImage from "./helpers/DynamicImage.astro";
             gap: 30px;
 
             a {
-              color: #181818;
+              color: var(--color-text-dark);
               border: none;
               background: none;
               padding: 0;
 
               &:hover {
                 translate: 0 -3px;
-                color: #ffcc4a;
+                color: var(--color-primary-yellow);
               }
             }
           }

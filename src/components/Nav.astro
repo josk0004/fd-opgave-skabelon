@@ -124,41 +124,41 @@
 
     nav a {
       text-decoration: none;
-      color: #ffffff;
-      font-weight: 400;
+      color: var(--color-white);
+      font-weight: var(--font-weight-regular);
       transition: all 0.3s ease-in-out;
       /* position: relative; */
-      font-size: 18px;
-      line-height: 160%;
+      font-size: var(--font-size-md);
+      line-height: var(--line-height-relaxed);
       background: none;
       border: none;
       padding: 0;
     }
 
     nav a:hover {
-      color: #ffcc4a;
+      color: var(--color-primary-yellow);
     }
 
     nav a.logo {
-      font-family: "Cabin", sans-serif;
-      font-weight: 600;
-      font-size: 30px;
+      font-family: var(--font-heading);
+      font-weight: var(--font-weight-semibold);
+      font-size: var(--font-size-3xl);
       line-height: 105%;
     }
 
     nav button {
-      color: #181818;
-      font-weight: 400;
-      font-size: 18px;
-      line-height: 160%;
+      color: var(--color-text-dark);
+      font-weight: var(--font-weight-regular);
+      font-size: var(--font-size-md);
+      line-height: var(--line-height-relaxed);
       padding: 4px 16px;
       border-radius: 20px;
-      background: #ffcc4a;
+      background: var(--bg-yellow);
       transition: all 0.3s ease-in-out;
 
       &:hover {
         translate: 0 -3px;
-        background: #ebbc44;
+        background: var(--color-primary-yellow-hover);
       }
     }
 
@@ -178,7 +178,7 @@
     .menu-toggle .bar {
       width: 25px;
       height: 3px;
-      background: #ffffff;
+      background: var(--bg-white);
       margin: 3px 0;
       transition: 0.3s;
       border-radius: 2px;
@@ -256,13 +256,13 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color: #181818;
+      background-color: var(--bg-dark);
       border-radius: 30px;
       padding: 80px 100px;
       z-index: 1000;
       max-width: fit-content;
       animation: slideIn 0.3s ease;
-      color: #ffffff;
+      color: var(--color-white);
 
       .modal-content {
         display: flex;
@@ -274,29 +274,29 @@
         flex-direction: column;
 
         label {
-          font-size: 18px;
-          font-weight: 400;
-          line-height: 116%;
+          font-size: var(--font-size-md);
+          font-weight: var(--font-weight-regular);
+          line-height: var(--line-height-tight);
           margin-bottom: 5px;
         }
         input {
-          color: #181818;
-          background-color: #ffffff;
+          color: var(--color-text-dark);
+          background-color: var(--bg-white);
           height: 60px;
           padding: 20px;
           border-radius: 4px;
-          border: 1px solid #e3e3e3;
+          border: 1px solid var(--border-medium);
           margin-bottom: 30px;
         }
 
         a {
           align-self: center;
-          background: #ffcc4a;
+          background: var(--bg-yellow);
           border: none;
-          color: #181818;
-          font-size: 18px;
-          font-weight: 600;
-          line-height: 160%;
+          color: var(--color-text-dark);
+          font-size: var(--font-size-md);
+          font-weight: var(--font-weight-semibold);
+          line-height: var(--line-height-relaxed);
           padding: 15px 56px;
         }
 
@@ -312,13 +312,13 @@
       }
 
       h2 {
-        font-size: 45px;
-        font-weight: 700;
-        line-height: 116%;
+        font-size: var(--font-size-6xl);
+        font-weight: var(--font-weight-bold);
+        line-height: var(--line-height-tight);
         margin-bottom: 46px;
 
         @media (max-width: 768px) {
-          font-size: 30px;
+          font-size: var(--font-size-3xl);
           margin-bottom: 30px;
         }
       }

@@ -51,7 +51,7 @@ import Pin from "@icons/pin.svg";
 <style>
   @layer components {
     section {
-      background-color: #ffffff;
+      background-color: var(--bg-white);
       width: 100%;
 
       .contact-us-wrapper {
@@ -74,23 +74,23 @@ import Pin from "@icons/pin.svg";
             max-width: 410px;
 
             h3 {
-              font-family: "Lato", sans-serif;
-              font-weight: 400;
-              font-size: 16px;
+              font-family: var(--font-body);
+              font-weight: var(--font-weight-regular);
+              font-size: var(--font-size-base);
               letter-spacing: 2.32px;
               text-transform: uppercase;
-              color: #181818;
+              color: var(--color-text-dark);
             }
 
             h2 {
-              font-size: 45px;
-              font-weight: 700;
+              font-size: var(--font-size-6xl);
+              font-weight: var(--font-weight-bold);
               margin: 10px 0;
-              color: #181818;
+              color: var(--color-text-dark);
             }
 
             p {
-              color: #595566;
+              color: var(--color-text-medium);
             }
           }
 
@@ -113,29 +113,29 @@ import Pin from "@icons/pin.svg";
               }
 
               .phone {
-                color: #deaa27;
-                background-color: #ffecbb;
+                color: var(--color-primary-yellow-dark);
+                background-color: var(--bg-yellow-light);
               }
 
               .clock {
-                color: #4eaf4e;
-                background-color: #a4eda4;
+                color: var(--color-primary-green);
+                background-color: var(--bg-green-light);
               }
 
               .pin {
-                color: #181818;
-                background-color: #eaeaea;
+                color: var(--color-text-dark);
+                background-color: var(--bg-gray);
               }
 
               .info {
                 h4 {
-                  font-size: 20px;
-                  font-weight: 700;
-                  color: #181818;
+                  font-size: var(--font-size-lg);
+                  font-weight: var(--font-weight-bold);
+                  color: var(--color-text-dark);
                 }
 
                 p {
-                  color: #595566;
+                  color: var(--color-text-medium);
                 }
               }
             }
@@ -147,7 +147,7 @@ import Pin from "@icons/pin.svg";
           margin-top: 50px;
 
           .green {
-            background-color: #4eaf4e;
+            background-color: var(--bg-green);
             border-radius: 30px;
             width: 307px;
             height: 164px;

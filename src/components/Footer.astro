@@ -16,7 +16,7 @@
 <style>
   @layer components {
     section {
-      background: #181818;
+      background: var(--bg-dark);
       padding: 46px 0;
     }
 
@@ -33,9 +33,9 @@
     }
 
     h2 {
-      font-size: 30px;
-      font-weight: 600;
-      color: #ffffff;
+      font-size: var(--font-size-3xl);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-white);
       line-height: 105%;
     }
 
@@ -46,7 +46,7 @@
 
     p {
       span {
-        color: #ffffff;
+        color: var(--color-white);
         display: inline-block;
 
         @media (min-width: 564px) {

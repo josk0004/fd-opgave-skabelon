@@ -28,7 +28,7 @@ const paragraphs = Array.isArray(answer) ? answer : typeof answer === "string" ?
 <style>
   details {
     color: hsl(190 30% 12%);
-    border-bottom: 1px solid #dadada;
+    border-bottom: 1px solid var(--border-gray);
     inline-size: 100%;
 
     @media (prefers-reduced-motion: no-preference) {
@@ -53,10 +53,10 @@ const paragraphs = Array.isArray(answer) ? answer : typeof answer === "string" ?
     }
 
     summary {
-      font-weight: 500;
-      font-family: "Cabin", sans-serif;
-      font-size: 20px;
-      color: #181818;
+      font-weight: var(--font-weight-medium);
+      font-family: var(--font-heading);
+      font-size: var(--font-size-lg);
+      color: var(--color-text-dark);
       text-wrap: revert;
       user-select: none;
       cursor: pointer;
@@ -86,7 +86,7 @@ const paragraphs = Array.isArray(answer) ? answer : typeof answer === "string" ?
     }
 
     .answer {
-      color: #595566;
+      color: var(--color-text-medium);
 
       > * + * {
         margin-top: 1em;

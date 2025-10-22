@@ -15,7 +15,7 @@ const { data, exclusive } = Astro.props;
 <style>
   section {
     padding: 151px 236px;
-    background: #f5f5f5;
+    background: var(--bg-light-gray);
     max-width: 1200px;
     border-radius: 30px;
     margin-inline: auto;
@@ -30,21 +30,21 @@ const { data, exclusive } = Astro.props;
     }
 
     h3 {
-      font-family: "Lato", sans-serif;
-      color: #181818;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 147.5%;
+      font-family: var(--font-body);
+      color: var(--color-text-dark);
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-regular);
+      line-height: var(--line-height-normal);
       letter-spacing: 2.32px;
       margin-bottom: 22px;
       text-align: center;
     }
 
     h2 {
-      color: #181818;
-      font-size: 45px;
-      font-weight: 700;
-      line-height: 116%;
+      color: var(--color-text-dark);
+      font-size: var(--font-size-6xl);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--line-height-tight);
       text-align: center;
     }
   }

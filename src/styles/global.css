@@ -1,8 +1,73 @@
 /* Globale styles her */
 
+:root {
+    /* Color Variables */
+    --color-primary-dark: #181818;
+    --color-primary-green: #4eaf4e;
+    --color-primary-yellow: #ffcc4a;
+    --color-primary-yellow-alt: #fbc336;
+    --color-primary-yellow-dark: #deaa27;
+    --color-primary-yellow-hover: #ebbc44;
+    --color-white: #ffffff;
+    --color-text-dark: #181818;
+    --color-text-medium: #595566;
+    --color-text-gray: #353535;
+    --color-text-gray-alt: #1c1c1c;
+
+    /* Background Colors */
+    --bg-white: #ffffff;
+    --bg-dark: #181818;
+    --bg-dark-alt: #151515;
+    --bg-light-gray: #f5f5f5;
+    --bg-medium-gray: #ebebeb;
+    --bg-gray: #eaeaea;
+    --bg-green: #4eaf4e;
+    --bg-green-light: #a4eda4;
+    --bg-yellow: #ffcc4a;
+    --bg-yellow-alt: #fbc336;
+    --bg-yellow-light: #ffecbb;
+    --bg-yellow-variant: #ffc32b;
+    --bg-yellow-dark: #daae3c;
+
+    /* Border Colors */
+    --border-light: #ebebeb;
+    --border-medium: #e3e3e3;
+    --border-gray: #dadada;
+    --border-medium-gray: #eaeaea;
+
+    /* Font Families */
+    --font-body: 'Lato', sans-serif;
+    --font-heading: 'Cabin', sans-serif;
+
+    /* Font Sizes */
+    --font-size-xs: 14px;
+    --font-size-sm: 15px;
+    --font-size-base: 16px;
+    --font-size-md: 18px;
+    --font-size-lg: 20px;
+    --font-size-xl: 25px;
+    --font-size-2xl: 28px;
+    --font-size-3xl: 30px;
+    --font-size-4xl: 35px;
+    --font-size-5xl: 40px;
+    --font-size-6xl: 45px;
+    --font-size-7xl: 50px;
+
+    /* Font Weights */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Line Heights */
+    --line-height-tight: 116%;
+    --line-height-normal: 147.5%;
+    --line-height-relaxed: 160%;
+}
+
 body {
-    font-family: 'Lato', sans-serif;
-    background-color: #ffffff;
+    font-family: var(--font-body);
+    background-color: var(--bg-white);
 }
 
 h1,
@@ -11,31 +76,31 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Cabin', sans-serif;
+    font-family: var(--font-heading);
 }
 
 h1 {
     font-size: clamp(24px, 4vw, 50px);
     font-style: normal;
-    font-weight: 700;
-    line-height: 116%;
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
 }
 
 p {
-    font-size: 16px;
+    font-size: var(--font-size-base);
     font-style: normal;
-    font-weight: 400;
-    line-height: 147.5%;
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-normal);
 }
 
 a {
-    font-size: 18px;
-    line-height: 160%;
-    color: #353535;
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-gray);
     text-decoration: none;
     padding: 16px 31px;
-    background: #ffffff;
-    border: 1px solid #ebebeb;
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
     border-radius: 50px;
     transition: 0.3s ease-in-out;
     width: fit-content;
