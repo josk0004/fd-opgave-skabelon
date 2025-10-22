@@ -6,7 +6,10 @@
   <div class="footer-content">
     <h2>AskExperts</h2>
     <div></div>
-    <p>©2025 Consultalk. All rights reserved | Terms of Service | Privacy Policy</p>
+    <p>
+      <span>©2025 Consultalk. All rights reserved</span>
+      <span>Terms of Service | Privacy Policy</span>
+    </p>
   </div>
 </section>
 
@@ -22,6 +25,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      text-align: center;
       gap: 36px;
       max-width: calc(1200px + 38px * 2);
       margin: 0 auto;
@@ -41,7 +45,16 @@
     }
 
     p {
-      color: #ffffff;
+      span {
+        color: #ffffff;
+        display: inline-block;
+
+        @media (min-width: 564px) {
+          &:first-child::after {
+            content: " |";
+          }
+        }
+      }
     }
   }
 </style>
