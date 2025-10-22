@@ -53,4 +53,125 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
   }
 </article>
 
-<style></style>
+<style>
+  @layer components {
+    article {
+      padding: 80px 38px;
+      header {
+        max-width: 1200px;
+        margin: 0 auto;
+
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 20px;
+        }
+
+        .case-details {
+          background-color: #181818;
+          color: #ffffff;
+          padding: 53px 60px;
+          display: flex;
+          max-width: clamp(0px, 80vw, 1028px);
+          justify-content: space-between;
+          position: relative;
+          margin: 0 auto;
+          margin-top: -60px;
+          margin-bottom: 60px;
+          border-radius: 30px;
+          gap: 20px;
+          flex-wrap: wrap;
+
+          @media (max-width: 768px) {
+            align-items: center;
+            padding: 30px 20px;
+            margin-top: -10px;
+            margin-bottom: 40px;
+          }
+
+          a:hover {
+            translate: 0 -3px;
+          }
+
+          dl {
+            display: flex;
+            gap: clamp(20px, 10vw, 100px);
+            flex-wrap: wrap;
+
+            @media (max-width: 768px) {
+              /* flex-direction: column; */
+              gap: 20px;
+            }
+
+            div {
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+
+              dt {
+                font-family: "Cabin", sans-serif;
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 116%;
+              }
+
+              dd {
+                font-family: "Cabin", sans-serif;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 116%;
+              }
+            }
+          }
+
+          .button {
+            border: none;
+            background-color: #ffcc4a;
+            color: #181818;
+          }
+        }
+      }
+
+      section {
+        max-width: 792px;
+        margin: 0 auto;
+        color: #181818;
+        h2 {
+          font-size: 40px;
+          font-weight: 700;
+          line-height: 116%;
+          margin-bottom: 15px;
+        }
+        h3 {
+          color: #1c1c1c;
+          font-size: 30px;
+          font-weight: 700;
+          line-height: 116%; /* 34.8px */
+        }
+
+        p {
+          color: #595566;
+        }
+
+        ul {
+          list-style-type: disc;
+          margin-left: 20px;
+          color: #595566;
+          margin-bottom: 64px;
+        }
+
+        p,
+        h3,
+        img {
+          margin-bottom: 26px;
+        }
+        img {
+          width: 714px;
+          height: auto;
+          aspect-ratio: 2/1;
+          margin-inline: auto;
+        }
+      }
+    }
+  }
+</style>
